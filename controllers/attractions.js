@@ -23,8 +23,22 @@ const show = (req,res) => {
         res.status(200).json({attraction: foundAttraction})
     })
 }
+
+const showByPark = (req,res) => {
+    db.attraction.findAll({
+        where: {
+            themeParkId: req.params.id
+        }
+    }).then((foundAttractions) => {
+        if(!foundAttractions) return res.json({
+            message: "Attractions with provided Theme Park not found"
+        })
+        res.status(200).json({attractions: foundAttractions})
+    })
+}
     
 module.exports = {
     index,
-    show
+    show,
+    showByPark
 }

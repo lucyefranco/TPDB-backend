@@ -1,9 +1,8 @@
 const router = require('express').Router()
-const ctrl = require('../controllers/attractions')
+const ctrl = require('../controllers/themePark')
 
-// PATH = /api/v1/attractions
+// PATH = /api/v1/creatives
 router.get('/', ctrl.index)
 router.get('/:id', ctrl.show)
-router.get('/byPark/:id', ctrl.showByPark)
 
 module.exports = router

@@ -1,6 +1,9 @@
+const themePark = require('../controllers/themePark');
 const attraction = require('../models/attraction');
 
 module.exports = {
     auth: require('./auth'),
-    attractions: require('./attractions')
+    attractions: require('./attractions'),
+    creatives: require('./creatives'),
+    themeParks: require('./themeParks')
 }
