@@ -4,7 +4,7 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     const bulkAttractions = await queryInterface.bulkInsert("attractions", [
       {
-        themeParkID: 1,
+        themeParkId: 1,
         name: "The Haunted Mansion",
         type: "Ride",
         openingDate: "1969-08-09",
@@ -14,7 +14,7 @@ module.exports = {
         updatedAt: new Date()
       },
     {
-      themeParkID: 2,
+      themeParkId: 2,
       name: "Guardians of the Galaxy - Mission: Breakout!",
       type: "Ride",
       openingDate: "2017-05-27",
@@ -24,7 +24,7 @@ module.exports = {
       updatedAt: new Date()
     },
     {
-      themeParkID: 3,
+      themeParkId: 3,
       name: "Revenge of the Mummy: The Ride",
       type: "Ride",
       openingDate: "2004-06-25",
@@ -34,7 +34,7 @@ module.exports = {
       updatedAt: new Date()
     },
     {
-      themeParkID: 1,
+      themeParkId: 1,
       name: "Star Wars: Rise of the Resistance",
       type: "Ride",
       openingDate: "2019-01-17",

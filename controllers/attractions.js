@@ -10,7 +10,21 @@ const index = (req,res) => {
         res.status(200).json({ attractions: foundAttractions})
     })
 }
+
+const show = (req,res) => {
+    db.attraction.findAll({
+        where: {
+            id: req.params.id
+        }
+    }).then((foundAttraction) => {
+        if(!foundAttraction) return res.json({
+            message: "Attraction with provided ID not found"
+        })
+        res.status(200).json({attraction: foundAttraction})
+    })
+}
     
 module.exports = {
-    index
+    index,
+    show
 }

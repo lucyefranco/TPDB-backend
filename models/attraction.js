@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   attraction.init({
-    themeParkID: DataTypes.INTEGER,
+    themeParkId: DataTypes.INTEGER,
     name: DataTypes.STRING,
     type: DataTypes.STRING,
     openingDate: DataTypes.DATEONLY,
