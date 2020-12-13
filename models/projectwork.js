@@ -14,8 +14,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   projectWork.init({
-    creativeID: DataTypes.INTEGER,
-    attractionID: DataTypes.INTEGER
+    creativeId: DataTypes.INTEGER,
+    attractionId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'projectWork',
