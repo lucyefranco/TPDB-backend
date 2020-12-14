@@ -22,7 +22,14 @@ const show = (req,res) => {
     })
 }
 
+const create = (req,res) => {
+    db.themePark.create(req.body).then((newPark) => {
+        res.status(200).json({ themePark: newPark})
+    })
+}
+
 module.exports = {
     index,
-    show
+    show,
+    create
 }
