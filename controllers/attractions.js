@@ -36,9 +36,16 @@ const showByPark = (req,res) => {
         res.status(200).json({attractions: foundAttractions})
     })
 }
+
+const create = (req,res) => {
+    db.attraction.create(req.body).then((newAttraction) => {
+        res.status(200).json({ attraction: newAttraction})
+    })
+}
     
 module.exports = {
     index,
     show,
-    showByPark
+    showByPark,
+    create
 }
