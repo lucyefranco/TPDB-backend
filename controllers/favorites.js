@@ -70,7 +70,37 @@ const db = require('../models')
 
 // creatives
     // find by user
+    const showUserCreatives = (req,res) => {
+        db.creativeFavorites.findAll({
+            where: {
+                userId: req.params.id
+            }
+        }).then((foundCreatives) => {
+            if(!foundCreatives) return res.json({
+                message: "Creative with provided ID not found"
+            })
+            res.status(200).json({ creativeFavorites: foundCreatives })
+        })
+    }
+    // add to favorites
+    const createCreativeFavorite = (req,res) => {
+        db.creativeFavorites.create(req.body).then((newFavorite) => {
+            res.status(200).json({ creativeFavorites: newFavorite})
+        })
+    }
     // find by attraction
+    const showByCreative = (req,res) => {
+        db.creativeFavorites.findAll({
+            where: {
+                creativeId: req.params.id
+            }
+        }).then((foundUsers) => {
+            if(!foundUsers) return res.json({
+                message: "No users have favorited this creative"
+            })
+            res.status(200).json({ creativeFavorites: foundUsers})
+        })
+    }
 
 module.exports = {
     showUserAttractions,
@@ -78,5 +108,8 @@ module.exports = {
     showByAttraction,
     showUserParks,
     createParkFavorite,
-    showByPark
+    showByPark,
+    showUserCreatives,
+    createCreativeFavorite,
+    showByCreative
 }

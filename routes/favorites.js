@@ -8,5 +8,8 @@ router.get('/attractions/byAttraction/:id', ctrl.showByAttraction)
 router.get('/themeParks/byUser/:id', ctrl.showUserParks)
 router.post('/themeParks/', ctrl.createParkFavorite)
 router.get('/themeParks/byPark/:id',ctrl.showByPark)
+router.get('/creatives/byUser/:id', ctrl.showUserCreatives)
+router.post('/creatives/', ctrl.createCreativeFavorite)
+router.get('/creative/byCreative/:id', ctrl.showByCreative)
 
 module.exports = router
