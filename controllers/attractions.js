@@ -1,6 +1,5 @@
 const db = require('../models')
 
-// Find all of the brewery posts
 const index = (req,res) => {
     console.log("in the index route")
     db.attraction.findAll().then((foundAttractions) => {
