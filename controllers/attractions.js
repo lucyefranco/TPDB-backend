@@ -42,10 +42,23 @@ const create = (req,res) => {
         res.status(200).json({ attraction: newAttraction})
     })
 }
+
+const findCreatives = (req,res) => {
+    db.attraction.findOne({
+        where: {
+            id: req.params.id
+        }
+    }).then(function(attraction) {
+        attraction.getCreatives().then(function(creatives) {
+            res.status(200).json({linkedCreatives: creatives})
+        })
+    })
+}
     
 module.exports = {
     index,
     show,
     showByPark,
-    create
+    create,
+    findCreatives
 }

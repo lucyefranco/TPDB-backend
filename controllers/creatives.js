@@ -22,7 +22,20 @@ const show = (req,res) => {
     })
 }
 
+const findAttractions = (req,res) => {
+    db.creative.findOne({
+        where: {
+            id: req.params.id
+        }
+    }).then(function(creative) {
+        creative.getAttractions().then(function(attractions) {
+            res.status(200).json({linkedAttractions: attractions})
+        })
+    })
+}
+
 module.exports = {
     index,
-    show
+    show,
+    findAttractions
 }
