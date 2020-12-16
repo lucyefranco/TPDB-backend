@@ -34,8 +34,15 @@ const findAttractions = (req,res) => {
     })
 }
 
+const create = (req,res) => {
+    db.creative.create(req.body).then((newCreative) => {
+        res.status(200).json({ creative: newCreative})
+    })
+}
+
 module.exports = {
     index,
     show,
-    findAttractions
+    findAttractions,
+    create
 }
