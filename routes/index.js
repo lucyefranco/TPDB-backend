@@ -8,5 +8,6 @@ module.exports = {
     creatives: require('./creatives'),
     themeParks: require('./themeParks'),
     projectWorks: require('./projectWorks'),
-    users: require('./users')
+    users: require('./users'),
+    favorites: require('./favorites')
 }

@@ -49,6 +49,7 @@ app.use('/api/v1/creatives', routes.creatives)
 app.use('/api/v1/themeParks', routes.themeParks)
 app.use('/api/v1/projectWorks', routes.projectWorks)
 app.use('/api/v1/users', routes.users)
+app.use('/api/v1/favorites', routes.favorites)
 
 // connection
 app.listen(port, () => console.log(`Server is running on port ${port}`))
