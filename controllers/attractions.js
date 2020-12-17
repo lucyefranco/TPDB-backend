@@ -1,6 +1,5 @@
 const db = require('../models')
 
-// Find all of the brewery posts
 const index = (req,res) => {
     console.log("in the index route")
     db.attraction.findAll().then((foundAttractions) => {
@@ -23,8 +22,44 @@ const show = (req,res) => {
         res.status(200).json({attraction: foundAttraction})
     })
 }
+
+const showByPark = (req,res) => {
+    db.attraction.findAll({
+        where: {
+            themeParkId: req.params.id
+        }
+    }).then((foundAttractions) => {
+        if(!foundAttractions) return res.json({
+            message: "Attractions with provided Theme Park not found"
+        })
+        res.status(200).json({attractions: foundAttractions})
+    })
+}
+
+const create = (req,res) => {
+    db.attraction.create(req.body).then((newAttraction) => {
+        res.status(200).json({ attraction: newAttraction})
+    })
+}
+
+const findCreatives = (req,res) => {
+    db.attraction.findOne({
+        where: {
+            id: req.params.id
+        }
+    }).then(function(attraction) {
+        attraction.getCreatives().then(function(creatives) {
+            res.status(200).json({linkedCreatives: creatives})
+        })
+    })
+}
+
+// find theme park
     
 module.exports = {
     index,
-    show
+    show,
+    showByPark,
+    create,
+    findCreatives
 }

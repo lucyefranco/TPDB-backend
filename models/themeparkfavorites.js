@@ -3,24 +3,24 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class creative extends Model {
+  class themeParkFavorites extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      models.creative.belongsToMany(models.attraction, {through: "projectWork"})
-      models.creative.hasMany(models.creativeFavorites)
+      models.themeParkFavorites.belongsTo(models.themePark)
+      models.themeParkFavorites.belongsTo(models.user)
     }
   };
-  creative.init({
-    name: DataTypes.STRING,
-    status: DataTypes.BOOLEAN,
-    about: DataTypes.TEXT
+  themeParkFavorites.init({
+    themeParkId: DataTypes.INTEGER,
+    userId: DataTypes.INTEGER,
+    themeParkName: DataTypes.STRING
   }, {
     sequelize,
-    modelName: 'creative',
+    modelName: 'themeParkFavorites',
   });
-  return creative;
+  return themeParkFavorites;
 };

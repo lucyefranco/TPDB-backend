@@ -12,7 +12,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       models.attraction.belongsTo(models.themePark)
-      models.attraction.belongsToMany(models.creative, {through: "projectwork"})
+      models.attraction.hasMany(models.attractionFavorites)
+      models.attraction.belongsToMany(models.creative, {through: "projectWork"})
     }
   };
   attraction.init({

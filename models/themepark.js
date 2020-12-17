@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       models.themePark.hasMany(models.attraction)
+      models.themePark.hasMany(models.themeParkFavorites)
     }
   };
   themePark.init({
