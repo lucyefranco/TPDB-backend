@@ -88,7 +88,7 @@ const db = require('../models')
             res.status(200).json({ creativeFavorites: newFavorite})
         })
     }
-    // find by attraction
+    // find by creative
     const showByCreative = (req,res) => {
         db.creativeFavorites.findAll({
             where: {

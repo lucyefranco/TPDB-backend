@@ -10,6 +10,6 @@ router.post('/themeParks/', ctrl.createParkFavorite)
 router.get('/themeParks/byPark/:id',ctrl.showByPark)
 router.get('/creatives/byUser/:id', ctrl.showUserCreatives)
 router.post('/creatives/', ctrl.createCreativeFavorite)
-router.get('/creative/byCreative/:id', ctrl.showByCreative)
+router.get('/creatives/byCreative/:id', ctrl.showByCreative)
 
 module.exports = router
