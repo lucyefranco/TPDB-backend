@@ -33,6 +33,13 @@ const db = require('../models')
             res.status(200).json({ attractionFavorites: foundUsers})
         })
     }
+    const destroyAttraction = (req,res) => {
+        db.attractionFavorites.destroy({
+            where: { id: req.params.id }
+        }).then(() => {
+            res.sendStatus(200)
+        })
+    }
 
 // themeParks
     // find by user
@@ -65,6 +72,13 @@ const db = require('../models')
                 message: "No users have favorited this theme park"
             })
             res.status(200).json({ themeParkFavorites: foundUsers})
+        })
+    }
+    const destroyPark = (req,res) => {
+        db.themeParkFavorites.destroy({
+            where: { id: req.params.id }
+        }).then(() => {
+            res.sendStatus(200)
         })
     }
 
@@ -102,14 +116,25 @@ const db = require('../models')
         })
     }
 
+    const destroyCreative = (req,res) => {
+        db.creativeFavorites.destroy({
+            where: { id: req.params.id }
+        }).then(() => {
+            res.sendStatus(200)
+        })
+    }
+
 module.exports = {
     showUserAttractions,
     createAttractionFavorite,
     showByAttraction,
+    destroyAttraction,
     showUserParks,
     createParkFavorite,
     showByPark,
+    destroyPark,
     showUserCreatives,
     createCreativeFavorite,
-    showByCreative
+    showByCreative,
+    destroyCreative
 }
